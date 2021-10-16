@@ -72,7 +72,7 @@ function App() {
         <div>
           <button onClick={handleGoogleSignIn}>Google Sign In</button>
           <button onClick={handleGithubSignIn}>Github Sign In</button>
-          <button onClick={handleFacebookSignIn}>Facebook Sign In</button>
+          {/* <button onClick={handleFacebookSignIn}>Facebook Sign In coming </button> */}
         </div>
       ) : (
         <button onClick={handleSignOut}>Sign Out</button>
