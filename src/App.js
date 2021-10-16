@@ -48,19 +48,6 @@ function App() {
     });
   };
 
-  const handleFacebookSignIn = () => {
-    signInWithPopup(auth, facebookProvider).then((result) => {
-      const { displayName, photoURL, email } = result.user;
-      console.log(result.user);
-      const loggedInUser = {
-        name: displayName,
-        email: email,
-        photo: photoURL,
-      };
-      setUser(loggedInUser);
-    });
-  };
-
   const handleSignOut = () => {
     signOut(auth).then(() => {
       setUser({});
