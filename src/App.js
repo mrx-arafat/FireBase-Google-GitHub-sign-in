@@ -48,6 +48,19 @@ function App() {
     });
   };
 
+  const handleFacebookSignIn = () => {
+    signInWithPopup(auth, facebookProvider).then((result) => {
+      const { displayName, photoURL, email } = result.user;
+      console.log(result.user);
+      const loggedInUser = {
+        name: displayName,
+        email: email,
+        photo: photoURL,
+      };
+      setUser(loggedInUser);
+    });
+  };
+
   const handleSignOut = () => {
     signOut(auth).then(() => {
       setUser({});
@@ -59,7 +72,9 @@ function App() {
         <div>
           <button onClick={handleGoogleSignIn}>Google Sign In</button>
           <button onClick={handleGithubSignIn}>Github Sign In</button>
-          {/* <button onClick={handleFacebookSignIn}>Facebook Sign In coming </button> */}
+          <button onClick={handleFacebookSignIn}>
+            Facebook Sign In coming{" "}
+          </button>
         </div>
       ) : (
         <button onClick={handleSignOut}>Sign Out</button>
